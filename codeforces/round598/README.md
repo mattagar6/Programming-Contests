@@ -1,7 +1,7 @@
 # Results
 Solved 3/6 questions, ranked [1973/12995](https://codeforces.com/contest/1256/standings/participant/29666016#p29666016). 
 My first attempts to each of the three solved questions were incorrect, which was a bit unusual. However, I was happy that I was able to debug efficiently and fix my solutions.
-Had I not made mistakes on the first three questions, I would have been able to submit the 4th problem.
+Had I not made mistakes on the first three questions, I would have been able to submit the 4th problem in time.
 
 # Analysis
 ### [A. Payment Without Change](https://codeforces.com/contest/1256/problem/A)
