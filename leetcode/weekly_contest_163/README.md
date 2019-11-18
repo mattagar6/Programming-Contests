@@ -1,6 +1,6 @@
 # Results
 Solved 3/4 questions, ranked [532/5873](https://leetcode.com/contest/weekly-contest-163/ranking/). 
-Not my best Contest. I had multiple incorrect submissions on the first and third questions, 
+Not my best contest. I had multiple incorrect submissions on the first and third questions, 
 and I completely blanked on the fourth problem during the contest.
 
 # Analysis
@@ -126,7 +126,7 @@ Space Complexity: O(n)<br>
 ### [Minimum Moves to Move a Box to Their Target Location](https://leetcode.com/problems/minimum-moves-to-move-a-box-to-their-target-location/)
 I solved this problem using Dijkstra's shortest path algorithm. The implementation was easier in Python, so that's what I went with.
 I kept track of the target, box, and player's coordinates, and looked for the shortest path for the box to get to the target (shortest means the minimum number of pushes).
-Even using Python, the implementation was a bit tricky; The nodes in the graph kept track of both the box and the player's coordinates. 
+Even using Python, the implementation was a bit tricky; the nodes in the graph kept track of both the box and the player's coordinates. 
 Additional checks were needed to determine wheter or not the player could push the box when the two were adjacent.
 ```Python
 class Solution(object):
