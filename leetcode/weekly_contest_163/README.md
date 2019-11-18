@@ -38,7 +38,7 @@ Time Complexity: O(nm)<br>
 Space Complexity: O(nm)<br>
 ### [Find Elements in a Contaminated Binary Tree](https://leetcode.com/problems/find-elements-in-a-contaminated-binary-tree/)
 I rebuilt the Tree according to the the rule in the problem statement using DFS. I used a set of node values to help with the **find()** operation. 
-I also saw some clever solutions that used an level-order traversal and binary search to implement the **find()** operation.
+I also saw some clever solutions that used a level-order traversal and binary search to implement the **find()** operation.
 ```C++
 /**
  * Definition for a binary tree node.
