@@ -21,12 +21,6 @@ struct debug {
 		*this<<"[";for(auto it=x.b;it!=x.e;it++){*this<<", "+2*(it==x.b)<<*it;}return *this<<"]";}
 	template<class T> debug& operator<<(vector<T> x){ return *this<<range(all(x));}
 };
-struct Timer {
-	time_t b, e;
-	Timer() {b = clock();}
-	~Timer() {e = clock(); cout<<"Runtime: "<<fixed<<setprecision(4)<<double(e-b)/double(CLOCKS_PER_SEC)<<" s\n";};
-};
-
 
 void solve(void) {
 
