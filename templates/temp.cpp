@@ -3,9 +3,6 @@
 #define pb push_back
 #define eb emplace_back
 #define mp make_pair
-#define For(i,a,b) for(int i = a; i < b; i++)
-#define Ford(i,a,b) for(int i = a; i >= b; i--)
-#define Fill(x,v) memset(x, v, sizeof(x))
 #define nav(...) "[ " << #__VA_ARGS__ ": " << (__VA_ARGS__) << " ] "
 using namespace std;
 typedef vector<int> vi;
