@@ -3,7 +3,7 @@
 template<typename flow_t>
 struct MaxFlow {
 	
-	const flow_t FLOW_INF = numeric_limits<flow_t>::max() / 2;
+	const flow_t FLOW_MAX = numeric_limits<flow_t>::max() / 2;
 	vector<vector<int>> g;
 	vector<vector<flow_t>> flow;
 	int n, source, sink;
