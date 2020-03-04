@@ -4,7 +4,7 @@ struct MinCostFlow {
 	const cost_t COST_INF = numeric_limits<cost_t>::max() / 2;
 
 	vector<vector<int>> g;
-       	vector<vector<flow_t>> cap;
+	vector<vector<flow_t>> cap;
 	vector<vector<cost_t>> cost;
 	int n, source, sink;
 
