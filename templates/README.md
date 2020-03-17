@@ -1,1 +1,1 @@
-My Competitive Programming templates. They are not the most readable code; the excessive **typedef**s and **#define**s allow me to write concise code in a short amount of time.
+My Competitive Programming templates/library. The purpose of this library is to build up my abstractions of common algorithms to solve contest problems faster.
