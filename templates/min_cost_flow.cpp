@@ -1,12 +1,6 @@
 template<typename flow_t, typename cost_t>
-struct MinCostFlow {
-	const flow_t FLOW_INF = numeric_limits<flow_t>::max() / 2;
-	const cost_t COST_INF = numeric_limits<cost_t>::max() / 2;
-
-	vector<vector<int>> g;
-	vector<vector<flow_t>> cap;
-	vector<vector<cost_t>> cost;
-	int n, source, sink;
+class MinCostFlow {
+public:
 
 	MinCostFlow(int _n, int _source, int _sink) : n(_n), source(_source), sink(_sink) {
 		g.resize(n);
@@ -83,4 +77,12 @@ struct MinCostFlow {
 
 		return total_cost;
 	}	
+private:
+	const flow_t FLOW_INF = numeric_limits<flow_t>::max() / 2;
+	const cost_t COST_INF = numeric_limits<cost_t>::max() / 2;
+
+	vector<vector<int>> g;
+	vector<vector<flow_t>> cap;
+	vector<vector<cost_t>> cost;
+	int n, source, sink;
 };
