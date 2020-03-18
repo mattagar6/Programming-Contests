@@ -1,12 +1,6 @@
-
-
 template<typename flow_t>
-struct MaxFlow {
-	
-	const flow_t FLOW_MAX = numeric_limits<flow_t>::max() / 2;
-	vector<vector<int>> g;
-	vector<vector<flow_t>> flow;
-	int n, source, sink;
+class MaxFlow {
+public:
 
 	MaxFlow(int _n, int _source, int _sink) : n(_n), source(_source), sink(_sink) {
 		g.resize(n);
@@ -59,4 +53,9 @@ struct MaxFlow {
 
 		return mf;
 	}
+private:
+	const flow_t FLOW_MAX = numeric_limits<flow_t>::max() / 2;
+	vector<vector<int>> g;
+	vector<vector<flow_t>> flow;
+	int n, source, sink;
 };
