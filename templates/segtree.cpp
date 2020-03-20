@@ -1,11 +1,6 @@
+template <class node_t>
 class SegTree {
 public:
-	struct Node {
-		
-		void merge(Node a, Node b) {
-			
-		};
-	};
 	
 	SegTree(int n_) {
 		n = n_;
@@ -29,14 +24,14 @@ public:
 		
 	}
 	
-	Node get(int i, int L, int R, int tl, int tr) {
-		if(tl > tr) return Node();
+	node_t get(int i, int L, int R, int tl, int tr) {
+		if(tl > tr) return node_t();
 		if(L == tl && tr == R) {
 			return tree[i];
 		} else {
 			push(i);
 			int mid = L + (R-L)/2;
-			Node ans;
+			node_t ans;
 			ans.merge(get(2*i, L, mid, tl, min(tr, mid)), get(2*i+1, mid+1, R, max(tl, mid+1), tr));
 			return ans;
 		}
@@ -55,14 +50,20 @@ public:
 		}
 	}
 	
-	int get(int tl, int tr) { 
-		Node ans = get(1, 1, n, tl, tr); 
-		
-	}
+	//$ int get(int tl, int tr) { 
+		//$ node_t ans = get(1, 1, n, tl, tr); 
+	//$ }
 	
-	void upd(int tl, int tr, int val) { upd(1, 1, n, tl, tr, val); }
+	//$ void upd(int tl, int tr, int val) { upd(1, 1, n, tl, tr, val); }
 private:
 	int n;
-	vector<Node> tree;
+	vector<node_t> tree;
 	vector<int> lazy;
+};
+
+struct Node {
+		
+	void merge(Node a, Node b) {
+		
+	};
 };
