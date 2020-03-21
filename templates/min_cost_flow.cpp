@@ -33,7 +33,8 @@ public:
 		while(!pq.empty()) {
 			State u = pq.top(); pq.pop();
 			if(u.dist > dist[u.node]) continue;
-
+			if(u.node == sink) break;
+			
 			for(int v : g[u.node]) {
 				if(dist[v] > u.dist + cost[u.node][v] && cap[u.node][v] > 0) {
 					dist[v] = u.dist + cost[u.node][v];
