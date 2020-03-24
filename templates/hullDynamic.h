@@ -1,4 +1,6 @@
 // major inspiration from: https://github.com/kth-competitive-programming/kactl/blob/master/content/data-structures/LineContainer.h
+// template for convex hull trick, dp optimization
+// add -> O(log(n)), get_max -> O(log(n))
 
 using ll = long long;
 
