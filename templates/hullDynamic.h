@@ -1,3 +1,5 @@
+// major inspiration from: https://github.com/kth-competitive-programming/kactl/blob/master/content/data-structures/LineContainer.h
+
 using ll = long long;
 
 struct Line {
