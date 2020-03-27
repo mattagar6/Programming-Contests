@@ -6,7 +6,6 @@ struct CentroidDecomp {
 		par.resize(_n, -1);
 		sz.resize(_n);
 		removed.resize(_n);
-		ans.resize(_n, inf);
 	}
 	
 	int get_sz(int u, int p = -1) {
