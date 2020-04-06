@@ -17,6 +17,11 @@ struct Point {
 	Point operator -(Point rhs) const { return Point(x - rhs.x, y - rhs.y); }
 };
 
+template<typename p_type>
+ostream& operator <<(ostream& out, Point<p_type> p) {
+	return out << fixed << setprecision(3) << "(" << p.x << ", " << p.y << ")";
+}
+
 template<typename v_type>
 struct Vec {
 	v_type x, y;
@@ -105,6 +110,53 @@ vector<P> get_hull(vector<P> arr) {
 	
 	return hull;
 }
+
+////////////////////////////////// Lines //////////////////////////////////
+
+// line segments
+struct Line {
+	P p, q; // endpoints (p.x <= q.x)
+	ll a, b, c; // ax + by + c = 0, a >= 0
+	Line(P _p, P _q) : p(_p), q(_q) {
+		if(p.x > q.x) swap(p, q);
+		ll x0 = p.x, y0 = p.y, x1 = q.x, y1 = q.y;
+		a = y1-y0, b = x0-x1;
+		c = (y0-y1)*x0 + (x1-x0)*y0;
+		ll GCD = gcd(gcd(llabs(a), llabs(b)), llabs(c));
+		a /= GCD, b /= GCD, c /= GCD;
+		if(a < 0) {
+			a *= -1, b *= -1, c *= -1;
+		}
+	}
+	
+	bool contains(P rhs) const {
+		return a*rhs.x + b*rhs.y + c == 0 && 
+				p.x <= rhs.x && rhs.x <= q.x && 
+				min(p.y, q.y) <= rhs.y && rhs.y <= max(p.y, q.y);
+	}
+};
+
+bool areParallel(Line l1, Line l2) {
+	return l1.a == l2.a && l1.b == l2.b;
+}
+
+// do two line segments intersect at integer coords?
+bool intersect(Line l1, Line l2, P& p) {
+	if(areParallel(l1, l2)) return false;
+	if((-l1.b*l2.c + l2.b*l1.c) % (l2.a*l1.b - l1.a*l2.b)) return false;
+	p.x = (-l1.b*l2.c + l2.b*l1.c) / (l2.a*l1.b - l1.a*l2.b);
+
+	if(l1.b != 0) {
+		if((l1.a * p.x + l1.c) % l1.b) return false;
+		p.y = -(l1.a * p.x + l1.c) / l1.b;
+	} else {
+		if((l2.a * p.x + l2.c) % l2.b) return false;
+		p.y = -(l2.a * p.x + l2.c) / l2.b;
+	}
+	if(!l1.contains(p) || !l2.contains(p)) return false;
+	return true;
+}
+
 ////////////////////////////////// Circles //////////////////////////////////
 
 struct Circle {
