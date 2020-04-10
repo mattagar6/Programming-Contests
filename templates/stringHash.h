@@ -25,7 +25,7 @@ void init() {
         pinv[i][j] = mul(pinv[i][j/2], pinv[i][j/2]);
         if(j&1) pinv[i][j] = mul(pinv[i][j], pinv[i][1]); } } }
 
-// assumes LOWERCASE latin letters
+template<char base>
 class StringHash {
 public:
     StringHash() { memset(h, 0, sizeof h); }
@@ -33,7 +33,7 @@ public:
         s = deque<char>(_s.begin(), _s.end());
         int n = s.size();
         memset(h, 0, sizeof h);
-        for(int i = 0; i < 2; i++) for(int j = 0; j < n; j++) { h[i] = add(h[i], mul(_s[j]-'a'+1, ppow[i][j])); } }
+        for(int i = 0; i < 2; i++) for(int j = 0; j < n; j++) { h[i] = add(h[i], mul(_s[j]-base+1, ppow[i][j])); } }
 
     bool operator <(const StringHash& rhs) const { return tie(h[0], h[1]) < tie(rhs.h[0], rhs.h[1]); }
     bool operator ==(const StringHash& rhs) const { for(int i = 0; i < 2; i++) { if(h[i] != rhs.h[i]) return false; } return true; }
@@ -42,24 +42,24 @@ public:
     
     void push_back(char c) {
         int n = s.size();
-        for(int i = 0; i < 2; i++) { h[i] = add(h[i], mul(c-'a'+1, ppow[i][n])); }
+        for(int i = 0; i < 2; i++) { h[i] = add(h[i], mul(c-base+1, ppow[i][n])); }
         s.push_back(c); }
         
     void pop_back() {
         assert(!s.empty());
         int n = s.size()-1;
         char c = s.back();
-        for(int i = 0; i < 2; i++) { h[i] = add(h[i], -mul(c-'a'+1, ppow[i][n])); }
+        for(int i = 0; i < 2; i++) { h[i] = add(h[i], -mul(c-base+1, ppow[i][n])); }
         s.pop_back(); }
         
     void push_front(char c) {
-        for(int i = 0; i < 2; i++) { h[i] = mul(h[i], ppow[i][1]), h[i] = add(h[i], c-'a'+1); }
+        for(int i = 0; i < 2; i++) { h[i] = mul(h[i], ppow[i][1]), h[i] = add(h[i], c-base+1); }
         s.push_front(c); }
     
     void pop_front() {
         assert(!s.empty());
         char c = s.front();
-        for(int i = 0; i < 2; i++) { h[i] = add(h[i], -(c-'a'+1)), h[i] = mul(h[i], pinv[i][1]); }
+        for(int i = 0; i < 2; i++) { h[i] = add(h[i], -(c-base+1)), h[i] = mul(h[i], pinv[i][1]); }
         s.pop_front(); }
 
     pair<int, int> get_hash() const { return {h[0], h[1]}; }
@@ -67,3 +67,5 @@ private:
     deque<char> s;
     int h[2];
 };
+
+using Hash = StringHash<'a'>;
