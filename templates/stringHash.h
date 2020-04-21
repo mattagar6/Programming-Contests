@@ -35,7 +35,6 @@ public:
         memset(h, 0, sizeof h);
         for(int i = 0; i < 2; i++) for(int j = 0; j < n; j++) { h[i] = add(h[i], mul(_s[j]-base+1, ppow[i][j])); } }
 
-    bool operator <(const StringHash& rhs) const { return tie(h[0], h[1]) < tie(rhs.h[0], rhs.h[1]); }
     bool operator ==(const StringHash& rhs) const { for(int i = 0; i < 2; i++) { if(h[i] != rhs.h[i]) return false; } return true; }
     bool operator !=(const StringHash& rhs) const { return !(*this == rhs); }
     size_t size() const { return s.size(); }
@@ -63,6 +62,7 @@ public:
         s.pop_front(); }
 
     pair<int, int> get_hash() const { return {h[0], h[1]}; }
+    string to_string() const { return string(s.begin(), s.end()); }
 private:
     deque<char> s;
     int h[2];
