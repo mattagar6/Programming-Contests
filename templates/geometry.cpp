@@ -126,9 +126,14 @@ struct Line {
 		a /= GCD, b /= GCD, c /= GCD;
 		if(a < 0) {
 			a *= -1, b *= -1, c *= -1;
-		}
+		} else if(a == 0 && b < 0) {
+            b *= -1, c *= -1;
+        }
 	}
 	
+    bool operator ==(const Line& rhs) const { return tie(a, b, c) == tie(rhs.a, rhs.b, rhs.c); }
+    bool operator !=(const Line& rhs) const { return !(*this == rhs); }
+    
 	bool contains(P rhs) const {
 		return a*rhs.x + b*rhs.y + c == 0 && 
 				p.x <= rhs.x && rhs.x <= q.x && 
