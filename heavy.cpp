@@ -1,17 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-template<class T> struct rge { T b, e; };
-template<class T> rge<T> range(T i, T j) { return rge<T>{i, j}; }
+#define ris   return *this
+#define tmplt template<class T
+#define dbgo  debug& operator<<
+tmplt > struct rge { T b, e; };
+tmplt > rge<T> range(T i, T j) { return rge<T>{i, j}; }
 struct debug {
 #ifdef LOCAL
-    ~debug(){cerr<<endl;}
-    template<class T> debug& operator<<(T x){cerr<<boolalpha<<x; return *this;}
-    template<class B, class C> debug& operator<<(pair<B, C> x){return *this<<"("<<x.first<<", "<<x.second<<")";}
-    template<class T> debug& operator<<(rge<T> x){*this<<"[";for(auto it=x.b;it!=x.e;it++){*this<<", "+2*(it==x.b)<<*it;}return *this<<"]";}
-    template<class T> debug& operator<<(vector<T> x){ return *this<<range(x.begin(),x.end());}
+~debug(){cerr<<endl;}
+tmplt > dbgo(T x){cerr<<boolalpha<<x;ris;}
+tmplt, class C > dbgo(pair<T, C> x){ris<<"("<<x.first<<", "<<x.second<<")";}
+tmplt > dbgo(rge<T> x){*this<<"[";for(auto it=x.b;it!=x.e;it++){*this<<", "+2*(it==x.b)<<*it;}ris<<"]";}
+tmplt > dbgo(vector<T> x){ris<<range(x.begin(),x.end());}
 #else
-    template<class T> debug& operator <<(const T&){return *this;}
+tmplt > dbgo(const T&){ris;}
 #endif
 };
 #define nav(...) << "[ " << #__VA_ARGS__ ": " << (__VA_ARGS__) << " ] "
@@ -49,10 +52,11 @@ int main() {
 
 
 
-// Those who say they can, and those who say they can't - are both usually right.
+// Don't worry, you're getting better
 
 // Read statement carefully
 // Solve on paper first!
+// Make your infinity big enough
 // Overflows (long long)
 
 // Author: blondie
