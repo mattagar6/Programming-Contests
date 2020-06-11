@@ -1,4 +1,5 @@
-// major inspiration from: https://github.com/kth-competitive-programming/kactl/blob/master/content/data-structures/LineContainer.h
+// major inspiration from: 
+// https://github.com/kth-competitive-programming/kactl/blob/master/content/data-structures/LineContainer.h
 // template for convex hull trick, dp optimization
 // add -> O(log(n)), get_max -> O(log(n))
 
@@ -6,7 +7,7 @@ using ll = long long;
 
 struct Line {
     mutable ll m, b, p; // p = point this line intersects next line on hull with > slope
-    bool operator <(const Line& rhs) const { return m < rhs.m; }
+    bool operator <(const Line& rhs) const { return tie(m, b) < tie(rhs.m, rhs.b); }
     bool operator <(ll x) const { return p < x; }
     ll eval(ll x) const { return m * x + b; }
 };
