@@ -8,13 +8,7 @@ namespace SCC {
    int component[mxN], low[mxN], num[mxN], visited[mxN], n, scc_count = 0;
 
    void read() {
-      int m;
-      cin >> n >> m;
-      for(int i = 0; i < m; i++) {
-         int u, v;
-         cin >> u >> v;
-         g[u].push_back(v);
-      }
+      
    }
 
    void tarjan(int u) {
