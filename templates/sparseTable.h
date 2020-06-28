@@ -1,11 +1,15 @@
-const int B = 15;
+int msb(int n) {
+   return 31 - __builtin_clz(n);
+}
 
 template<typename T>
 struct SparseTable {
    int n;
-   vector<T> tab[B];
-   SparseTable(vector<T> a) {
+   vector<vector<T>> tab;
+   void build(vector<T> a) {
       n = a.size();
+      int B = msb(n) + 1;
+      tab.resize(B);
       for(int b = 0; b < B; b++) {
          tab[b].resize(n);
          int len = 1<<b;
@@ -20,7 +24,7 @@ struct SparseTable {
       }
    }
    T get(int L, int R) const {
-      int b = 31 - __builtin_clz(R - L + 1);
+      int b = msb(R - L + 1);
       return max(tab[b][L], tab[b][R-(1<<b)+1]);
    }
 };
