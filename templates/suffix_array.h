@@ -1,5 +1,7 @@
 namespace suffix_array {
 
+   // sort vector "p" based on the values in array "c"
+   // O(n) time
    void count_sort(vector<int>& p, const vector<int>& c) {
       int n = p.size();
       assert(p.size() == c.size());
@@ -67,4 +69,4 @@ namespace suffix_array {
       }
       return p;
    }
-} // suffix_array
+} // namespace suffix_array
