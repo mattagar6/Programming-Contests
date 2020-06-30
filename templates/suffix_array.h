@@ -22,8 +22,8 @@ namespace suffix_array {
       p.swap(new_p);
    }
    
-   // returns suffix array of given string s 
-   // appends a "$" to the end of s, LENGTH++
+   // returns suffix array of given string "s" 
+   // appends a "$" to the end of "s", LENGTH++
    // O(nlogn) time
    vector<int> build(string& s) {
       s += "$";
