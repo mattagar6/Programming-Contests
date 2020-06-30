@@ -27,7 +27,7 @@ namespace suffix_array {
    // O(nlogn) time
    vector<int> build_sa(string& s) {
       s += "$";
-      int n = s.length();
+      int n = s.size();
       vector<int> p(n), c(n);
       {
          vector<pair<char,int>> a(n);
@@ -76,7 +76,7 @@ namespace suffix_array {
    // O(n) time for "lcp", O(nlogn) time for "p"
    vector<int> build_lcp(string& s, vector<int>& p) {
       p = build_sa(s);
-      int n = s.length();
+      int n = s.size();
       vector<int> lcp(n);
       vector<int> c(n);
       for(int i = 0; i < n; i++) {
