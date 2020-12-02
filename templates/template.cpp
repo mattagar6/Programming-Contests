@@ -1,8 +1,4 @@
-//#pragma GCC optimize ("Ofast")  
-//#pragma GCC target ("avx,avx2,fma")
-
 #include <bits/stdc++.h>
-
 using namespace std;
 
 typedef long long ll;
@@ -13,7 +9,6 @@ typedef pair<ll,ll> pll;
 
 #define F first
 #define S second
-#define mk make_pair
 #define ar array
 #define all(x) x.begin(), x.end()
 
